@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4j8xw2y1m9pk"]
+
+[ext_resource type="Script" path="res://scripts/Obstacle.gd" id="1_laser"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_laser"]
+size = Vector2(20, 300)
+
+[node name="LaserObstacle" type="Area2D"]
+collision_layer = 2
+collision_mask = 1
+script = ExtResource("1_laser")
+
+[node name="Sprite" type="ColorRect" parent="."]
+offset_left = -10.0
+offset_top = -150.0
+offset_right = 10.0
+offset_bottom = 150.0
+color = Color(1, 0, 0, 0.6)
+
+[node name="LaserCore" type="ColorRect" parent="Sprite"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 0.0
+offset_right = 6.0
+offset_bottom = 300.0
+color = Color(1, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_laser")
